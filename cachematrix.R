@@ -17,8 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
        getsol=getsol)
 }
 
-## This function solves the matrix 'x' or returns the cached solution if the 
-## matrix has already been solved, but not modified.
+## This function solves the matrix 'x' within a makeCacheMatrix object, 
+## or it returns the cached solution if the matrix has already been solved
+## and was not modified.
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   s <- x$getsol()
@@ -33,7 +34,8 @@ cacheSolve <- function(x, ...) {
 }
 
 ## example code:
-z = matrix(c(1,1,2,-1,-3,-3,2,2,2), nrow=3)
-m <- makeCacheMatrix(z)
-g <- cacheSolve(m)
-g$getsol()
+z = matrix(c(1,1,2,-1,-3,-3,2,2,2), nrow=3) # the matrix
+m <- makeCacheMatrix(z) # create Cache Matrix object
+g <- cacheSolve(m)      # solve matrix and cache solution
+g$getsol()              # get solution
+g <- cacheSolve(m)      # solve again (really just keep cached solution)
