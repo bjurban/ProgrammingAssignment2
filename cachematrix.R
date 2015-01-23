@@ -17,7 +17,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getsol=getsol)
 }
 
-
 ## This function solves the matrix 'x' or returns the cached solution if the 
 ## matrix has already been solved, but not modified.
 cacheSolve <- function(x, ...) {
